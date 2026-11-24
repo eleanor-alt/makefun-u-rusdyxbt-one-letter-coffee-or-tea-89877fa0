@@ -15,6 +15,9 @@ LETTER = "A"  # A for coffee
 
 
 def main() -> None:
+    # Guard the gate: exactly one letter, A for coffee or B for tea.
+    if len(LETTER) != 1 or LETTER not in ("A", "B"):
+        raise ValueError("entry must be exactly one letter, A or B")
     os.makedirs("/output", exist_ok=True)
     with open("/output/entry.txt", "w", encoding="utf-8", newline="") as f:
         f.write(LETTER)
